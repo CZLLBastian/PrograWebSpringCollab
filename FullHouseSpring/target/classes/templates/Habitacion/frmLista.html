@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Descripcion</th>
+							<th>Direccion</th>
+							<th>Operacion 1</th>
+							<th>Operacion 2</th>
+						</tr>
+					</thead>
+					<tbody id="habitaciones-list">
+						<tr th:each="ro:${listaHabitacion}">
+							<td th:text="${ro.idRoom}"></td>
+							<td th:text="${ro.descpRoom}"></td>
+							<td th:text="${ro.adress}"></td>
+							<td><a th:href="@{/rrooms/delete?id=}+${ro.idRoom}">
+									Eliminar </a></td>
+
+							<td><a th:href="@{'/rrooms/goupdate/'+${ro.idRoom}}">
+									Actualizar </a></td>
+
+						</tr>
+					</tbody>
+
+				</table>
+
+
+
+			</div>
+
+		</div>
+
+
+
+
+	</div>
+
+
+</body>
+</html>
