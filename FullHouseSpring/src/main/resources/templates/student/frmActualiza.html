@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Actualizar estudiante</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/sstudents/update}" method="post" th:object="${st}">
+				
+				<div class="col-sm-12">
+					<label class="form-label">Id:</label>
+					<input type="text" th:field="*{idStudent}" class="form-control"></input>
+				</div>
+				<div class="col-sm-12">
+					<label class="form-label">Nombre:</label>
+					<input type="text" th:field="*{nombreStudent}" class="form-control"></input>
+				</div>
+				<div class="col-sm-12">
+					<label class="form-label">DNI:</label>
+					<input type="text" th:field="*{dniStudent}" class="form-control"></input>
+				</div>
+				<div class="col-sm-12">
+					<label class="form-label">Edad:</label>
+					<input type="text" th:field="*{edadStudent}" class="form-control"></input>
+				</div>
+				<div class="col-sm-12">
+					<label class="form-label">N&uacutemero:</label>
+					<input type="text" th:field="*{numStudent}" class="form-control"></input>
+				</div>
+				<div class="col-sm-12">
+					<label class="form-label">Correo:</label>
+					<input type="text" th:field="*{correoStudent}" class="form-control"></input>
+				</div>
+				<div class="col-sm-12">
+					<label class="form-label">Usuario:</label>
+					<input type="text" th:field="*{userStudent}" class="form-control"></input>
+				</div>
+				<div class="col-sm-12">
+					<label class="form-label">Contrase&ntildea:</label>
+					<input type="text" th:field="*{passStudent}" class="form-control"></input>
+				</div>
+				<br>
+				<div class="col-sm-12">
+					<input type="submit" value="Actualizar" class="btn btn-dark"></input>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
