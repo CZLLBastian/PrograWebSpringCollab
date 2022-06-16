@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pe.edu.upc.fullhouse.entities.Interes;
+import pe.edu.upc.fullhouse.serviceinterface.IAvisoService;
 import pe.edu.upc.fullhouse.serviceinterface.IInteresService;
 import pe.edu.upc.fullhouse.serviceinterface.IStudentService;
 
@@ -28,11 +29,15 @@ public class InteresController {
 
 	@Autowired
 	private IStudentService studentService;
+	
+	@Autowired
+	private IAvisoService avisoService;
 
 	@GetMapping("/new")
 	public String newInteres(Model model) {
 		model.addAttribute("i", new Interes());
 		model.addAttribute("listaEstudiantes", studentService.list());
+		model.addAttribute("listaAviso", avisoService.list());
 		return "interes/frmRegistro";
 	}
 
@@ -75,6 +80,7 @@ public class InteresController {
 		Optional<Interes> objInt = interesService.listId(id);
 		model.addAttribute("in", objInt.get());
 		model.addAttribute("listaEstudiantes", studentService.list());
+		model.addAttribute("listaAviso", avisoService.list());
 		return "interes/frmActualiza";
 	}
 
