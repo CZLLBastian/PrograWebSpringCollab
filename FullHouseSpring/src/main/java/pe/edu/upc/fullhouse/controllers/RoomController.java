@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pe.edu.upc.fullhouse.entities.Room;
+import pe.edu.upc.fullhouse.serviceinterface.IArrendadorService;
+import pe.edu.upc.fullhouse.serviceinterface.IDistrictService;
 import pe.edu.upc.fullhouse.serviceinterface.IRoomService;
 
 @Controller
@@ -25,10 +27,18 @@ public class RoomController {
 	@Autowired
 	private IRoomService roomService;
 	
+	@Autowired
+	private IArrendadorService arrendadorService;
+	
+	@Autowired
+	private IDistrictService districtService;
+	
 	@GetMapping("/new")
 	public String newRoom(Model model) {
 	
 		model.addAttribute("r", new Room());
+		model.addAttribute("listaArrendadores", arrendadorService.list());
+		model.addAttribute("listaDistritos", districtService.list());
 		return "Habitacion/frmRegistro";	
 	}
 	
@@ -39,7 +49,7 @@ public class RoomController {
 		} else {
 			roomService.insert(ro);
 			model.addAttribute("mensaje", "Se registro correctamente");
-			return "redirect:/rrooms/new";
+			return "redirect:/rrooms/list";
 		}
 		
 	}
@@ -76,7 +86,8 @@ public class RoomController {
 		
 		Optional<Room>objRo=roomService.listId(id);
 		model.addAttribute("ro", objRo.get());
-		
+		model.addAttribute("listaArrendadores", arrendadorService.list());
+		model.addAttribute("listaDistritos", districtService.list());
 		return "Habitacion/frmActualiza";
 	}
 	
