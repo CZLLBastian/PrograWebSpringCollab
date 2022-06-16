@@ -1,4 +1,4 @@
-package pe.edu.upc.demo.controllers;
+package pe.edu.upc.fullhouse.controllers;
 
 import java.util.Map;
 import java.util.Optional;
@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pe.edu.upc.demo.entities.Student;
-import pe.edu.upc.serviceinterfaces.IStudentService;
+import pe.edu.upc.fullhouse.entities.Student;
+import pe.edu.upc.fullhouse.serviceinterface.IStudentService;
+import pe.edu.upc.fullhouse.serviceinterface.IUniversidadService;
 
 @Controller
 @RequestMapping("/sstudents")
@@ -25,9 +26,13 @@ public class StudentController {
 	@Autowired
 	private IStudentService studentService;
 	
+	@Autowired
+	private IUniversidadService universidadService;
+	
 	@GetMapping("/new")
 	public String newStudent(Model model) {
 		model.addAttribute("s", new Student());
+		model.addAttribute("listaUniversidades", universidadService.list());
 		return "student/frmRegistro";
 	}
 	
@@ -69,6 +74,7 @@ public class StudentController {
 	public String goUpdateStudent(@PathVariable int id, Model model) {
 		Optional<Student>objStu=studentService.listId(id);
 		model.addAttribute("st", objStu.get());
+		model.addAttribute("listaUniversidades", universidadService.list());
 		return "student/frmActualiza";
 	}
 	
