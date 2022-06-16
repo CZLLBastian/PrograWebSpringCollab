@@ -10,32 +10,33 @@
 		<div>
 			<form th:action="@{/sstudents/save}" method="post" th:object="${s}">
 				<div class="col-sm-12">
-					<label class="form-label">Nombre:</label>
-					<input type="text" th:field="*{nombreStudent}" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">Nombre:</label>
+					<input type="text" th:field="*{nombreStudent}" class="form-control" required ></input>
+					<div th:if="${#fields.hasErrors('nombreStudent')}" th:errors="*{nombreStudent}"></div>
 				</div>
 				<div class="col-sm-12">
-					<label class="form-label">DNI</label>
-					<input type="text" th:field="*{dniStudent}" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">DNI</label>
+					<input type="text" th:field="*{dniStudent}" class="form-control" required></input>
 				</div>
 				<div class="col-sm-12">
-					<label class="form-label">Edad:</label>
-					<input type="text" th:field="*{edadStudent}" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">Edad:</label>
+					<input type="number" th:field="*{edadStudent}" class="form-control" required></input>
 				</div>
 				<div class="col-sm-12">
-					<label class="form-label">N&uacutemero:</label>
-					<input type="text" th:field="*{numStudent}" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">N&uacutemero:</label>
+					<input type="text" th:field="*{numStudent}" class="form-control" required></input>
 				</div>
 				<div class="col-sm-12">
-					<label class="form-label">Correo:</label>
-					<input type="text" th:field="*{correoStudent}" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">Correo:</label>
+					<input type="email" th:field="*{correoStudent}" class="form-control" required></input>
 				</div>
 				<div class="col-sm-12">
-					<label class="form-label">Usuario:</label>
-					<input type="text" th:field="*{userStudent}" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">Usuario:</label>
+					<input type="text" th:field="*{userStudent}" class="form-control" required></input>
 				</div>
 				<div class="col-sm-12">
-					<label class="form-label">Contrase&ntildea:</label>
-					<input type="text" th:field="*{passStudent}" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">Contrase&ntildea:</label>
+					<input type="password" th:field="*{passStudent}" class="form-control" required></input>
 				</div>
 				<br>
 				<div class="col-sm-12">
