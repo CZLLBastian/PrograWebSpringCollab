@@ -10,16 +10,15 @@
 		<div>
 			<form th:action="@{/university/save}" method="post" th:object="${u}">
 
-				<div class="col-sm-12">
-					<label class="form-label">Nombre de universidad:</label> <input type="text"
-						th:field="*{fullNameUniversidad}" class="form-control"></input>
-
-				</div>
-				<div class="col-sm-12">
-						<input type="submit" value="Registrar" class="btn btn-dark"></input>
-					</div>
-			</form>
+				<label class="form-label" style="color: #fdfdfd">Nombre de
+					universidad:</label> <input type="text" th:field="*{fullNameUniversidad}"
+					class="form-control" required minlength="2" maxlength="40"></input>
 		</div>
+		<div class="col-sm-12">
+			<input type="submit" value="Registrar" class="btn btn-dark"></input>
+		</div>
+		</form>
+	</div>
 	</div>
 
 </body>
