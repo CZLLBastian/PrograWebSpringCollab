@@ -9,18 +9,22 @@
 	<div class="container">
 		<div>
 			<form th:action="@{/iinteres/update}" method="post" th:object="${in}">
-				
 				<div class="col-sm-12">
-					<label class="form-label">Id:</label>
+					<label class="form-label" style="color: #fdfdfd">Id:</label>
 					<input type="text" th:field="*{idInteres}" class="form-control"></input>
 				</div>
 				<div class="col-sm-12">
-					<label class="form-label">Nombre persona:</label>
-					<input type="text" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">Estudiante:</label>
+					<select name="updateStudent" class="form-control" th:field="*{student.idStudent}">
+					<option th:each="s:${listaEstudiantes}" th:value="${s.idStudent}" th:text="${s.nombreStudent}" th:selected="(${s.idStudent}==*{student.idStudent})"></option>
+					</select>
 				</div>
+				<br/>
 				<div class="col-sm-12">
-					<label class="form-label">Nombre aviso:</label>
-					<input type="text" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">Aviso:</label>
+					<select name="selectAviso" class="form-control" th:field="*{aviso.idAviso}">
+					<option th:each="a:${listaAviso}" th:value="${a.idAviso}" th:text="${a.preHabitacion}" th:selected="(${a.idAviso}==*{aviso.idAviso})"></option>
+					</select>
 				</div>
 
 				<br>

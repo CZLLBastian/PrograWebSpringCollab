@@ -10,19 +10,36 @@
 		<div>
 			<form th:action="@{/iinteres/save}" method="post" th:object="${i}">
 				<div class="col-sm-12">
-					<label class="form-label">Nombre persona:</label>
-					<input type="text" class="form-control"></input>
+					<label class="form-label" style="color: #fdfdfd">Estudiante:</label>
+					<select name="selectStudent" class="form-control"
+						th:field="*{student.idStudent}">
+						<option th:each="s:${listaEstudiantes}" th:value="${s.idStudent}"
+							th:text="${s.nombreStudent}"
+							th:selected="(${s.idStudent}==*{student.idStudent})"></option>
+					</select>
 				</div>
 				<div class="col-sm-12">
-					<label class="form-label">Nombre aviso:</label>
-					<input type="text" class="form-control"></input>
+					<label for="medida" class="col-sm-2 col-form-label">Nivel de inter&eacutes
+					</label> <select name="select" th:field="*{medidaInteres}" class="form-control">
+						<option value="Baja" selected>Baja</option>
+						<option value="Media">Media</option>
+						<option value="Alta">Alta</option>
+					</select>
 				</div>
-				<br>
-				<div class="col-sm-12">
-					<input type="submit" value="Registrar" class="btn btn-dark"></input>
-				</div>
-			</form>
+		<div class="col-sm-12">
+			<label class="form-label" style="color: #fdfdfd">Aviso:</label> <select
+				name="selectAviso" class="form-control" th:field="*{aviso.idAviso}">
+				<option th:each="a:${listaAviso}" th:value="${a.idAviso}"
+					th:text="${a.preHabitacion}"
+					th:selected="(${a.idAviso}==*{aviso.idAviso})"></option>
+			</select>
 		</div>
+		<br>
+		<div class="col-sm-12">
+			<input type="submit" value="Registrar" class="btn btn-dark"></input>
+		</div>
+		</form>
+	</div>
 	</div>
 
 </body>

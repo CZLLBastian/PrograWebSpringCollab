@@ -13,15 +13,19 @@
 					<thead>
 						<tr>
 							<th>Id</th>
-							<th>Nombre Persona</th>
-							<th>Nombre Aviso</th>
+							<th>Nombre Estudiante</th>
+							<th>Nivel de inter&eacutes</th>
+							<th>Precio Habitaci&oacuten</th>
 							<th>Operaci&oacuten</th>
 							<th>Operaci&oacuten</th>
 						</tr>
 					</thead>
 					<tbody id="intereses-list">
 						<tr th:each="int:${listaInteres}">
-							<td th:text="${int.idInteres}"></td>				
+							<td th:text="${int.idInteres}"></td>
+							<td th:text="${int.student.nombreStudent}"></td>
+							<td th:text="${int.medidaInteres}"></td>	
+							<td th:text="${int.aviso.preHabitacion}"></td>				
 							<td>
 							<a th:href="@{/iinteres/delete?id=}+${int.idInteres}">Eliminar</a>
 							</td>
