@@ -96,5 +96,11 @@ public class RoomController {
 		roomService.update(r);		
 		return "redirect:/rrooms/list";
 	}
+	@RequestMapping("/reporte5")
+	public String roomPrice(Map<String,Object> model) {
+		model.put("listaHabitacionPrecio", roomService.roomPrice());
+		return "Habitacion/report5";
+		
+	}
 	
 }
