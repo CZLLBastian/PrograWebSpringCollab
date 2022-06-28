@@ -11,4 +11,7 @@ public interface IStudentService {
 	public void delete(int idStudent);
 	Optional<Student> listId(int idStudent);
 	public void update(Student student);
+	
+	public List<String[]> unistudent();
+	
 }
