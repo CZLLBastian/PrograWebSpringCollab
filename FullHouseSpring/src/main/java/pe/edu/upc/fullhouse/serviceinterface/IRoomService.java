@@ -16,4 +16,6 @@ public interface IRoomService {
 	Optional<Room> listId(int idRoom);
 	
 	public void update(Room room);
+	
+	public List<String[]> roomPrice();
 }
