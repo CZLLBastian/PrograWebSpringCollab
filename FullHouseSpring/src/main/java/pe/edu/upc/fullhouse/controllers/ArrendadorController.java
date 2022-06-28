@@ -1,4 +1,4 @@
-package pe.edu.upc.demo.controllers;
+package pe.edu.upc.fullhouse.controllers;
 
 import java.util.Map;
 import java.util.Optional;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pe.edu.upc.demo.entities.Arrendador;
-import pe.edu.upc.demo.serviceinterface.IArrendadorService;
+import pe.edu.upc.fullhouse.entities.Arrendador;
+import pe.edu.upc.fullhouse.serviceinterface.IArrendadorService;
 
 @Controller
 @RequestMapping("/aarrendador")
@@ -77,6 +77,18 @@ public class ArrendadorController {
 	public String updateArrendador(Arrendador a) {
 		arrendadorService.update(a);
 		return "redirect:/aarrendador/list";
+	}
+	
+	@RequestMapping("/reporte1")
+	public String arrendadorDistrito(Map<String, Object> model) {
+		model.put("listaArrendadorDistrito", arrendadorService.arrendadorDistrito());
+		return "arrendador/report1";
+	}
+	
+	@RequestMapping("/reporte2")
+	public String arrendadorFecha(Map<String, Object> model) {
+		model.put("listaArrendadorFecha", arrendadorService.arrendadorFecha());
+		return "arrendador/report2";
 	}
 
 }
