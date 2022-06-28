@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Lista estudiantes</title>
+</head>
+<body>
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+	<!-- Page Heading -->
+					<h1 class="h3 mb-4 text-gray-800">Cantidad de estudiantes por universidad </h1>
+		<div>
+			<div class="table-responsive">
+				<table class="table table-white">
+					<thead>
+						<tr>
+						
+							<th scope ="col">Universidad</th>
+							<th scope ="col">Cantidad de estudiantes</th>
+						
+						</tr>
+					</thead>
+					<tbody >
+						<tr th:each="s:${listaUniversidadEstudiante}">
+							<td th:text="${s[0]}"></td>
+							<td th:text="${s[1]}"></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
