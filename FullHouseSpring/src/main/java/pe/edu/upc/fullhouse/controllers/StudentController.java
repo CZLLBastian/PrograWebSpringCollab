@@ -83,4 +83,11 @@ public class StudentController {
 		studentService.update(s);
 		return "redirect:/sstudents/list";
 	}
+	@RequestMapping("/reporte6")
+	public String unistudent(Map<String,Object> model) {
+		model.put("listaUniversidadEstudiante", studentService.unistudent());
+		return "student/report6";
+		
+	}
+	
 }
