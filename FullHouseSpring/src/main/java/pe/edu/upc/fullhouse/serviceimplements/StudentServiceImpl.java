@@ -40,5 +40,11 @@ public class StudentServiceImpl implements IStudentService {
 	public void update(Student student) {
 		studentRepository.save(student);
 	}
+	@Override
+	public List<String[]> unistudent() {
+		// TODO Auto-generated method stub
+		
+		return studentRepository.unistudent();
+               }
 
 }
